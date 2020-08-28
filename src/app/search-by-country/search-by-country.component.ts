@@ -24,7 +24,7 @@ export class SearchByCountryComponent implements OnInit {
   getCountry(): void {
     this.differentCity = [];
     this.errorMessage = null;
-    this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.myForm.value.search}&units=metric&appid=ff1bc4683fc7325e9c57e586c20cc03e`)
+    this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.myForm.value.search}&units=metric&appid=88f76052b7369dc2f772e1000503bb26`)
       .subscribe((response) => {
         this.differentCity.push( response);
       },
