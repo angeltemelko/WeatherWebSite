@@ -1,0 +1,48 @@
+#divWeatherMain{
+  display: block;
+  border-radius: 10px;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgb(28, 102, 193) 75%, rgb(25, 118, 210) 100%);
+  color: white;;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.mainClass{
+  margin:100px 10px 0 0;
+  width: 200px;
+  height: 250px;
+}
+.mainClass:hover{
+  background: white;
+  opacity: 0.4;
+}
+.alternateClass{
+  width: 200px;
+  height: 250px;
+  margin-top: 10px;
+  pointer-events:none;
+}
+.sideClass{
+  pointer-events:none;
+  margin:100px 10px 0 0;
+  width: 400px;
+  height: 400px;
+}
+
+.weatherWidgetRow{
+  display:block;
+  margin:0 auto;
+  width: fit-content;
+}
+
+.margintop{
+  margin-top:10px;
+}
+
+.icon{
+  margin-top: 10px;
+  color: white;
+  filter: drop-shadow( 1px 1px 10px white);
+}

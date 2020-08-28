@@ -1,0 +1,20 @@
+<form [formGroup]="myForm" (ngSubmit)="getCountry()" >
+  <label>
+    <input formControlName="search" type="text" placeholder="Search..">
+  </label>
+  <button type="submit" [ngClass]="!myForm.valid ? 'buttonDisabled' : 'button'" [disabled]="!myForm.valid">Submit</button>
+</form>
+<span *ngIf="errorMessage != null">
+  No Such City
+</span>
+<div *ngIf="differentCity.length != 0 " >
+
+  <app-weather-component  style="display: flex; justify-content: center"
+                         [howMany]="'alternative'"
+                         [ngClass]="'alternateClass'"
+                         [weatherOfTheCity]="differentCity"></app-weather-component>
+
+</div>
+
+
+
