@@ -46,3 +46,17 @@ input[type=text] {
   background-color: white;
   padding: 12px 20px 12px 10px;
 }
+
+.danger-text{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.danger-text span{
+  color: red;
+  background-color: #ffb5b8;
+  padding: 20px;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+}

@@ -4,9 +4,11 @@
   </label>
   <button type="submit" class="button" [ngClass]="!myForm.valid ? 'buttonDisabled' : 'buttonActive'" [disabled]="!myForm.valid">Submit</button>
 </form>
-<span *ngIf="errorMessage != null">
-  No Such City
-</span>
+<div class="danger-text"  *ngIf="errorMessage != null" [@simpleFadeAnimation]>
+  <span>
+    No Such City
+  </span>
+</div>
 <div *ngIf="differentCity.length != 0 " >
   <app-weather-component [howMany]="'alternative'"
                          [ngClass]="'alternateClass'"

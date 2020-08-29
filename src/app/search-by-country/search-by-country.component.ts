@@ -14,8 +14,6 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         style({opacity: 0}),
         animate(600 )
       ]),
-      transition(':leave',
-        animate(600, style({opacity: 0})))
     ])
   ]
 })
