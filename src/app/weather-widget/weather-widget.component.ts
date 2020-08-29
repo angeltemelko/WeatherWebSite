@@ -11,6 +11,7 @@ export class WeatherWidgetComponent implements OnInit {
   something: any[] = [];
   @Output() variable = new EventEmitter();
   @Input() ngClass;
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void{
@@ -19,7 +20,9 @@ export class WeatherWidgetComponent implements OnInit {
 
   getWeatherData(): void{
     this.http.get('https://api.openweathermap.org/data/2.5/onecall?lat=47.80&lon=13.05&units=metric&appid=88f76052b7369dc2f772e1000503bb26')
-      .subscribe(data =>  {this.setWeatherData(data); } );
+      .subscribe(data => {
+        this.setWeatherData(data);
+      });
   }
 
    setWeatherData(data): void{

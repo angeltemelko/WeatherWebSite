@@ -1,19 +1,17 @@
-<form [formGroup]="myForm" (ngSubmit)="getCountry()" >
+<form [formGroup]="myForm" (ngSubmit)="getCountry()" *ngIf="isHidden != 0" [@simpleFadeAnimation]>
   <label>
     <input formControlName="search" type="text" placeholder="Search..">
   </label>
-  <button type="submit" [ngClass]="!myForm.valid ? 'buttonDisabled' : 'button'" [disabled]="!myForm.valid">Submit</button>
+  <button type="submit" class="button" [ngClass]="!myForm.valid ? 'buttonDisabled' : 'buttonActive'" [disabled]="!myForm.valid">Submit</button>
 </form>
 <span *ngIf="errorMessage != null">
   No Such City
 </span>
 <div *ngIf="differentCity.length != 0 " >
-
-  <app-weather-component  style="display: flex; justify-content: center"
-                         [howMany]="'alternative'"
+  <app-weather-component [howMany]="'alternative'"
                          [ngClass]="'alternateClass'"
-                         [weatherOfTheCity]="differentCity"></app-weather-component>
-
+                         [weatherOfTheCity]="differentCity">
+  </app-weather-component>
 </div>
 
 

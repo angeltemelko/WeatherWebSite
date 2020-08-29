@@ -3,15 +3,18 @@ form{
 }
 
 .button{
-  background-color: #23b8e5;;
   border: none;
-  color: white;
   padding: 13px 32px;
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.buttonActive{
+  background-color: #23b8e5;;
+  color: white;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -19,18 +22,17 @@ form{
 .buttonDisabled{
   background-color: #ffffff;
   color: #23b8e5;
-  border-radius: 5px;
-  padding: 13px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
 }
 
 
-.button:hover {
+.buttonActive:hover {
   background-color: #1E91B6;
   color: white;
+}
+
+app-weather-component{
+  display: flex;
+  justify-content: center;
 }
 
 input[type=text] {

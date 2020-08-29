@@ -3,16 +3,15 @@
     <fa-icon class="icon fa-5x" [icon]="getIcons(i)"></fa-icon>
   </div>
   <div *ngIf="howMany != 'alternative'">
-      <div  class="weatherWidgetRow margintop" style="font-size: 20px; ">Day {{items.temp.day | number : '1.0-0'}}° / Night {{items.temp.eve | number : '1.0-0'}}° </div>
-      <div class="weatherWidgetRow margintop" style="font-size: 12px; ">min: {{items.temp.min | number : '1.0-0'}}° / max: {{items.temp.max | number : '1.0-0'}}°</div>
-      <div class="weatherWidgetRow margintop" style="font-size: 12px; ">Humidity: {{items.humidity}}%</div>
+    <div  class="weatherWidgetRow margintop" style="font-size: 20px; ">Day {{items.temp.day | number : '1.0-0'}}° / Night {{items.temp.eve | number : '1.0-0'}}° </div>
+    <div class="weatherWidgetRow margintop" style="font-size: 12px; ">min: {{items.temp.min | number : '1.0-0'}}° / max: {{items.temp.max | number : '1.0-0'}}°</div>
+    <div class="weatherWidgetRow margintop" style="font-size: 12px; ">Humidity: {{items.humidity}}%</div>
     <div *ngIf="howMany == 'Many'">
       <div class="weatherWidgetRow margintop" style="font-size: 12px;"> Sunrise: {{ items.sunrise*1000 | date:'h:mm:ss' }} AM</div>
       <div class="weatherWidgetRow margintop" style="font-size: 12px; "> Sunset: {{ items.sunset*1000 |  date:'h:mm:ss' }} PM</div>
       <div class="weatherWidgetRow margintop" style="font-size: 12px; "> Pressure {{ items.pressure}} hPa</div>
       <div class="weatherWidgetRow margintop" style="font-size: 12px; ">Uvi index:  {{ items.uvi}}</div>
       <div class="weatherWidgetRow margintop" style="font-size: 12px; ">Wind speed: {{ items.wind_speed}} m/s</div>
-
     </div>
     <div class="weatherWidgetRow margintop" style="font-size: 12px; margin-top:10px;">  {{ items.weather[0].main}}</div>
     <div class="weatherWidgetRow margintop" style="font-size: 12px; margin-top:10px;">  {{items.dt*1000 | date}}</div>

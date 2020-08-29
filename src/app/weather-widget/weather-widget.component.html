@@ -1,4 +1,6 @@
+<app-weather-component [howMany]="'One'"
+                       [ngClass]="'mainClass'"
+                       [weatherOfTheCity]="something">
+</app-weather-component>
 
-<app-weather-component [howMany]="'One'" [ngClass]="'mainClass'" style="display: flex;justify-content: center" [weatherOfTheCity]="something"></app-weather-component>
-
-<app-search-by-country></app-search-by-country>
+<app-search-by-country [isHidden]="something.length"></app-search-by-country>
