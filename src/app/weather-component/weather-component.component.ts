@@ -23,9 +23,9 @@ export class WeatherComponentComponent {
   @Input() weatherOfTheCity;
   @Input() howMany;
 
-  // tslint:disable-next-line:typedef
-  getIcons(index){
+  getIcons(index): object{
     let condition;
+    console.log(this.weatherOfTheCity);
     switch (this.weatherOfTheCity[index].weather[0].main) {
       case'Rain':
         condition = faCloudRain;

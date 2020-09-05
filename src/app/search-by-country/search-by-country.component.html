@@ -1,6 +1,6 @@
 <form [formGroup]="myForm" (ngSubmit)="getCountry()" *ngIf="isHidden != 0" [@simpleFadeAnimation]>
   <label>
-    <input formControlName="search" type="text" placeholder="Search..">
+    <input formControlName="search" type="text" placeholder="Search by country">
   </label>
   <button type="submit" class="button" [ngClass]="!myForm.valid ? 'buttonDisabled' : 'buttonActive'" [disabled]="!myForm.valid">Submit</button>
 </form>

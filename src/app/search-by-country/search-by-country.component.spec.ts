@@ -1,25 +1,36 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { SearchByCountryComponent } from './search-by-country.component';
+import {WeatherAPIService} from '../weather-api/weather-api.service';
+import {HttpClient} from '@angular/common/http';
+import {httpClientMock, WeatherAPIServiceMock} from '../mockServices';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 describe('SearchByCountryComponent', () => {
-  let component: SearchByCountryComponent;
-  let fixture: ComponentFixture<SearchByCountryComponent>;
+  interface Suite {
+    searchByCountryComponent: SearchByCountryComponent;
+    weatherApiService: jasmine.SpyObj<WeatherAPIService>;
+    httpClient: jasmine.SpyObj<HttpClient>;
+  }
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SearchByCountryComponent ]
-    })
-    .compileComponents();
-  }));
+  let suite: Suite = {} as any;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchByCountryComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      providers: [
+        SearchByCountryComponent,
+        {provide: HttpClient, useValue: httpClientMock},
+        {provide: WeatherAPIService, useValue: WeatherAPIServiceMock}
+      ],
+      imports: [ReactiveFormsModule, FormsModule]
+    }).compileComponents();
+    suite.weatherApiService = TestBed.get(WeatherAPIService);
+    suite.searchByCountryComponent = TestBed.get(SearchByCountryComponent);
+    suite.httpClient = TestBed.get(HttpClient);
   });
 
+  afterAll(() => suite = null);
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(suite.searchByCountryComponent).toBeTruthy();
   });
 });

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {WeatherAPIService} from '../weather-api/weather-api.service';
 
 @Component({
   selector: 'app-search-by-country',
@@ -24,10 +24,9 @@ export class SearchByCountryComponent implements OnInit {
   myForm: FormGroup;
   @Input() isHidden: number;
 
-  constructor(private http: HttpClient) { }
+  constructor(private weatherAPIService: WeatherAPIService) { }
 
   ngOnInit(): void {
-    // @ts-ignore
     this.myForm =  new FormGroup({
       search: new FormControl('', Validators.required)
     });
@@ -36,13 +35,11 @@ export class SearchByCountryComponent implements OnInit {
   getCountry(): void {
     this.differentCity = [];
     this.errorMessage = null;
-    this.http.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.myForm.value.search}&units=metric&appid=88f76052b7369dc2f772e1000503bb26`)
-      .subscribe((response) => {
-        this.differentCity.push( response);
+    this.weatherAPIService.getWeatherByCityName(this.myForm.value.search).subscribe((response) => {
+        this.differentCity.push(response);
       },
-        (error) => {
-          this.errorMessage = error;
+      (error) => {
+        this.errorMessage = error;
       });
   }
-
 }
